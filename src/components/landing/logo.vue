@@ -1,0 +1,13 @@
+<script lang="ts" setup>
+import { useLoader } from '@tresjs/core'
+import { useGLTF } from '@tresjs/cientos'
+const { scene, nodes, animations, materials } = await useGLTF('src/assets/logo.gltf')
+
+</script>
+
+<template>
+  <primitive :object="scene" :position="[0,0,0]"
+    :scale="[10,10,10]"
+    :rotation="[Math.PI/2,0,0]"
+  />
+</template>
