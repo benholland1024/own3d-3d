@@ -61,7 +61,6 @@ function handle_mouse_move(e) {
   <!--  Canvas  -->
   <!-------------->
   <TresCanvas window-size clear-color="#555" shadows
-    @mousemove="handle_mouse_move(event)"
     alpha>
     <TresPerspectiveCamera
       :position="[camPos[0], camPos[1], camPos[2]]"
@@ -93,7 +92,7 @@ function handle_mouse_move(e) {
     <TresPointLight :intensity="intensity" :position="[1, 1, 1]" cast-shadow/>
     
     <lighting/>
-    <OrbitControls maxPolarAngle="1"/>
+    <OrbitControls maxPolarAngle="1" maxAzimuthAngle="1" maxZoom="0"/>
   </TresCanvas>
 </template>
 
