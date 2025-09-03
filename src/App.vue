@@ -8,6 +8,7 @@ import { ref } from 'vue'
 import logo from './components/landing/logo.vue'
 import room from './components/landing/room.vue'
 import particles from './components/landing/particles.vue'
+import lighting from './components/landing/lighting.vue'
 
 
 
@@ -19,7 +20,11 @@ const intensity = ref(5);             //  White light intensity
 const camPos = ref([3,0,3]);          //  Camera position
 const camLookAt = ref([0,-1,0]);      //  Point the camera is looking @
 
-
+let last_x = 0
+let last_y = 0
+function handle_mouse_move(e) {
+  
+}
 
 
 </script>
@@ -56,6 +61,7 @@ const camLookAt = ref([0,-1,0]);      //  Point the camera is looking @
   <!--  Canvas  -->
   <!-------------->
   <TresCanvas window-size clear-color="#555" shadows
+    @mousemove="handle_mouse_move(event)"
     alpha>
     <TresPerspectiveCamera
       :position="[camPos[0], camPos[1], camPos[2]]"
@@ -63,7 +69,7 @@ const camLookAt = ref([0,-1,0]);      //  Point the camera is looking @
     />
 
     <!-- Axes  -->
-    <TresAxesHelper/>
+    <!-- <TresAxesHelper/> -->
 
     <!--  Logo  -->
     <Suspense>
@@ -85,10 +91,9 @@ const camLookAt = ref([0,-1,0]);      //  Point the camera is looking @
     <TresAmbientLight :intensity="1" />
     
     <TresPointLight :intensity="intensity" :position="[1, 1, 1]" cast-shadow/>
-    <TresPointLight :intensity="30" :position="[-2, -1.5, -2]" cast-shadow
-      :color="'orange'"
-    />
-    <!-- <OrbitControls /> -->
+    
+    <lighting/>
+    <OrbitControls maxPolarAngle="1"/>
   </TresCanvas>
 </template>
 
