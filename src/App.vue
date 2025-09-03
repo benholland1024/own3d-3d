@@ -34,7 +34,7 @@ function handle_mouse_move(e) {
   <!---------------->
   <!--  Controls  -->
   <!---------------->
-  <div id="controls" class="text-white text-xs [&_input]:mr-4">
+  <div id="controls" class="text-white text-xs [&_input]:mr-4" v-if="0">
     <p class="flex justify-between">Intensity:
       <span>
         <input type="number" v-model="intensity"/>
