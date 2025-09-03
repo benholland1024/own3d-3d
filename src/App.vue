@@ -92,7 +92,7 @@ function handle_mouse_move(e) {
     <TresPointLight :intensity="intensity" :position="[1, 1, 1]" cast-shadow/>
     
     <lighting/>
-    <OrbitControls maxPolarAngle="1" maxAzimuthAngle="1" maxZoom="0"/>
+    <OrbitControls />
   </TresCanvas>
 </template>
 
