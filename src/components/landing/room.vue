@@ -41,7 +41,7 @@
   </TresMesh>
   <!--  The other back wall wall  -->
   <TresMesh :position="[5,0,0]" 
-    :rotation="[Math.PI/2,Math.PI/2,0]" 
+    :rotation="[0,-Math.PI/2,0]" 
     :scale="[20,20,1]"
     cast-shadow
   >
