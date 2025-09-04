@@ -27,17 +27,18 @@ onBeforeRender(({ delta, elapsed }) => {
 })
 
 const scale = ref([0.02,0.02,0.02])
+const props = defineProps(['color'])
 
 </script>
 
 <template>
   <TresPointLight :intensity="30" :position="[-2, -1.5, -2]" cast-shadow
-    :color="'orange'" ref="light"
+    :color="`hsl(${29 + props.color}, 100%, 50%)`" ref="light"
   />
   <TresPointLight :intensity="10" :position="[-1, -2, -3]" cast-shadow
-    :color="'red'" ref="light1"
+    :color="`hsl(${357 + props.color}, 100%, 50%)`" ref="light1"
   />
   <TresPointLight :intensity="10" :position="[-3, -2, -1]" cast-shadow
-    :color="'purple'" ref="light2"
+    :color="`hsl(${300 + props.color}, 100%, 50%)`" ref="light2"
   />
 </template>

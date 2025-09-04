@@ -19,6 +19,7 @@ extend({ OrbitControls })
 const intensity = ref(5);             //  White light intensity
 const camPos = ref([3,0,3]);          //  Camera position
 const camLookAt = ref([0,-1,0]);      //  Point the camera is looking @
+const color = ref(0);
 
 let last_x = 0
 let last_y = 0
@@ -34,14 +35,20 @@ function handle_mouse_move(e) {
   <!---------------->
   <!--  Controls  -->
   <!---------------->
-  <div id="controls" class="text-white text-xs [&_input]:mr-4" v-if="0">
-    <p class="flex justify-between">Intensity:
+  <div id="controls" class="text-white text-xs [&_input]:mr-4">
+    <p class="flex justify-between">Color:
+      <span>
+        <input type="number" v-model="color" max="256"/>
+        <input type="range" v-model="color" max="256"/>
+      </span>
+    </p>
+    <!-- <p class="flex justify-between">Intensity:
       <span>
         <input type="number" v-model="intensity"/>
         <input type="range" v-model="intensity"/>
       </span>
-    </p>
-    <p v-for="(pos, i) in camPos" :key="i" class="flex justify-between">
+    </p> -->
+    <!-- <p v-for="(pos, i) in camPos" :key="i" class="flex justify-between">
       Cam position {{ i }}:
       <span>
         <input type="number" v-model="camPos[i]"/>
@@ -54,7 +61,7 @@ function handle_mouse_move(e) {
         <input type="number" v-model="camLookAt[i]"/>
         <input type="range" v-model="camLookAt[i]"/>
       </span>
-    </p>
+    </p> -->
   </div>
 
   <!-------------->
@@ -91,7 +98,7 @@ function handle_mouse_move(e) {
     
     <TresPointLight :intensity="intensity" :position="[1, 1, 1]" cast-shadow/>
     
-    <lighting/>
+    <lighting :color="color"/>
     <OrbitControls />
   </TresCanvas>
 </template>
